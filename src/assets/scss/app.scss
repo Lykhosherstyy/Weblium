@@ -142,7 +142,7 @@ body{
     top:50%;
     margin-top: -6px;
     z-index: 1;
-    background-image: url('/../assets/media/down-arrow.svg');
+    background-image: url('/assets/media/down-arrow.svg');
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -243,15 +243,16 @@ body{
   margin-bottom: 25px;
   @include rmin(640){
     margin: 0 15px;
+    width: auto;
   }
 }
 .btn-primary{
-  padding: 15px 33px;
+  padding: 15px 35px;
   background-color: $light-grey;
   color: #fff;
 }
 .btn-secondary{
-  padding: 14px 18px;
+  padding: 14px 27px;
   background-color: transparent;
   color: #000;
   border: 1px solid $border-color;
