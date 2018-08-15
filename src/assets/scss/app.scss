@@ -1,0 +1,258 @@
+@import 'variables';
+@import '_mixins';
+
+
+
+/***
+
+  COMMON STYLES
+
+***/
+
+*{
+  box-sizing: border-box;
+}
+.wrapper{
+  max-width: 100%;
+  padding: 0 20px;
+  @include rmin(640){
+    max-width: 768px;
+    padding: 0 25px;
+  }
+  @include rmin(1024){
+    max-width:1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}
+
+body{
+  margin:0;
+  padding: 0;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-color;
+  background-color: #fff;
+}
+
+
+/***
+
+  SCHEDULE BLOCK STYLES
+
+***/
+
+.schedule{
+  padding-bottom:100px;
+  .schedule--title{
+    margin-bottom: 50px;
+  }
+  .schedule--heading{
+    margin-bottom: 15px;
+    font-size: $font-heading;
+    font-weight: 400;
+    color: $secondary-color;
+  }
+  .schedule--desc{
+    display: none;
+    width: 100%;
+    font-size: 19px;
+    padding-right: 0;
+    margin-bottom: 10px;
+    font-size: $font-desc;
+    line-height: 1.6;
+    color: $light-grey;
+    @include rmin(640){
+      display: block;
+    }
+    @include rmin(1024){
+      width: 85%;
+      padding-right: 20px;
+    }
+  }
+}
+
+
+/***
+
+  TABLE STYLES
+
+***/
+
+.table{
+  padding-bottom: 20px;
+  @include rmin(640){
+    padding-bottom: 35px;
+  }
+  @include rmin(1024){
+    padding-bottom: 60px;
+  }
+  .table--heading{
+    display: none;
+    @include rmin(640){
+      display: flex;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $border-color;
+    }
+    @include rmin(1024){
+      padding-bottom: 20px;
+    }
+    .heading--item{
+      flex: 1;
+      font-size: 20px;
+      color: $secondary-color;
+      @include rmin(1024){
+        font-size: 24px;
+      }
+    }
+  }
+  .table--row{
+    display: block;
+    padding: 15px 0 30px 0;
+    border-bottom: 1px solid $border-color;
+    &:first-child{
+      border-top: 1px solid $border-color;
+    }
+    @include rmin(640){
+      display: flex;
+      padding: 10px 0 30px 0;
+      &:first-child{
+        border-top: none;
+      }
+    }
+    @include rmin(1024){
+      padding: 15px 0 30px 0;
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}
+.table--row-left{
+  position: relative;
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  &:after{
+    position: absolute;
+    content: '';
+    right: 7px;
+    width: 12px;
+    height: 12px;
+    top:50%;
+    margin-top: -6px;
+    z-index: 1;
+    background-image: url('/../assets/media/down-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  @include rmin(640){
+    &:after{
+      display: none;
+    }
+  }
+  @include rmin(1024){
+    font-size: 20px;
+  }
+}
+.table--row-right{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: 3;
+  width: 60%;
+  margin-left: auto;
+  padding: 15px 30px 0 0;
+  @include rmin(640){
+    align-items: initial;
+    width:auto;
+    padding: 0;
+  }
+  .row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    @include rmin(640){
+      flex-direction: row;
+      margin-bottom: 0px;
+    }
+    .row--item{
+      flex: 1;
+      margin-bottom: 5px;
+      font-size: 14px;
+      @include rmin(1024){
+        margin-bottom: 10px;
+        font-size: inherit;
+      }
+    }
+  }
+}
+.table-sm{
+  width: 100%;
+  margin:0 auto;
+  @include rmin(1024){
+    width: 70%;
+  }
+}
+
+.table--row-right_2{
+  flex: 2;
+}
+.table--row-right_4{
+  flex: 4;
+}
+.accordion--item:not(.active) .item--body {
+  display: none;
+  @include rmin(640){
+    display: inherit;
+  }
+}
+.accordion--item.active .table--row-left {
+  &:after {
+    transform: rotate(180deg);
+  }
+}
+
+/***
+
+  BUTTON STYLES
+
+***/
+
+.btn--group{
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  @include rmin(640){
+    flex-flow: initial;
+  }
+}
+.btn{
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 25px;
+  @include rmin(640){
+    margin: 0 15px;
+  }
+}
+.btn-primary{
+  padding: 15px 33px;
+  background-color: $light-grey;
+  color: #fff;
+}
+.btn-secondary{
+  padding: 14px 18px;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid $border-color;
+}
